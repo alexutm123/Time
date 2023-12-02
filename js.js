@@ -1,18 +1,19 @@
 
+let hourHand = document.querySelector('#hr');
+let minuteHand = document.querySelector('#mn');
+let secondHand = document.querySelector('#sc');
 
-let hr=document.querySelector('#hr');
-let mn=document.querySelector('#mn');
-let sc=document.querySelector('#sc');
-setInterval(()=>{
-let day=new Date();
-let hh=day.getHours()*30;
-let mm=day.getMinutes()*6;
-let ss=day.getSeconds()*6;
+setInterval(() => {
+  let day = new Date();
+  let hh = day.getHours() * 30;
+  let mm = day.getMinutes() * 6;
+  let ss = day.getSeconds() * 6;
 
-hr.style.transform= `rotateZ(${hh+(mm/12)}deg)`;
-mn.style.transform=`rotateZ(${mm}deg)`;
-sc.style.transform=`rotateZ(${ss}deg)`; 
-})
+  hourHand.style.transform = `rotateZ(${hh + (mm / 12)}deg)`;
+  minuteHand.style.transform = `rotateZ(${mm}deg)`;
+  secondHand.style.transform = `rotateZ(${ss}deg)`;
+});
+
 function createSnowflake() {
     const snowflake = document.createElement('div');
     snowflake.classList.add('snowflake');
@@ -28,7 +29,7 @@ function createSnowflake() {
     snowContainer.appendChild(snowflake);
   
     let topPosition = -randomSize;
-    const fallSpeed = 1 + Math.random() * 2; // Регулируем скорость падения снега
+    const fallSpeed = 1 + Math.random() * 2;
   
     function snowfall() {
       topPosition += fallSpeed;
@@ -38,8 +39,23 @@ function createSnowflake() {
       if (topPosition < windowHeight - randomSize) {
         requestAnimationFrame(snowfall);
       } else {
-        snowflake.style.top = `${windowHeight - randomSize}px`; // Фиксируем снежинку на дне экрана
-        snowflake.style.animation = 'increaseSize 1s infinite'; // Добавляем анимацию увеличения размера
+        snowflake.style.top = `${windowHeight - randomSize}px`;
+  
+        const increaseInterval = setInterval(() => {
+          const flakeWidth = parseFloat(snowflake.style.width);
+          const flakeHeight = parseFloat(snowflake.style.height);
+          snowflake.style.width = `${flakeWidth + 0.1}px`;
+          snowflake.style.height = `${flakeHeight + 0.1}px`;
+  
+          // Обновление координаты top при увеличении размера
+          topPosition -= 0.1;
+          snowflake.style.top = `${topPosition}px`;
+  
+          if (topPosition < -flakeHeight) {
+            clearInterval(increaseInterval);
+            snowflake.remove(); // Удаляем снежинку после завершения анимации
+          }
+        }, 1000);
       }
     }
   

@@ -154,10 +154,7 @@ body {
     pointer-events: none;
     background-color: #fff;
     border-radius: 50%;
+    max-height: none; /* Убираем ограничение высоты */
+    overflow: visible; /* Позволяет элементу быть видимым за пределами своего контейнера */
   }
-  /* Анимация увеличения размера снежинки */
-  @keyframes increaseSize {
-    to {
-      transform: scale(1.001); /* Увеличение размера на 0.1% */
-    }
-  }
+  
