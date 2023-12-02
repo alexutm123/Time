@@ -47,13 +47,13 @@ function createSnowflake() {
           snowflake.style.width = `${flakeWidth + 0.1}px`;
           snowflake.style.height = `${flakeHeight + 0.1}px`;
   
-          // Обновление координаты top при увеличении размера
+ 
           topPosition -= 0.1;
           snowflake.style.top = `${topPosition}px`;
   
           if (topPosition < -flakeHeight) {
             clearInterval(increaseInterval);
-            snowflake.remove(); // Удаляем снежинку после завершения анимации
+            snowflake.remove(); 
           }
         }, 1000);
       }
