@@ -141,4 +141,8 @@ body
     max-height: none; 
     overflow: visible; 
   }
-  
+  .big-text {
+    font-family: 'COLONNA MT', sans-serif; /* Замените 'Arial' на другой шрифт по вашему выбору */
+
+    font-size: 5em; 
+  }
