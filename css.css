@@ -13,7 +13,7 @@ body
     min-height: 100vh;
     background:  #2f363e;
     margin: 0;
-    overflow: hidden; /* Чтобы снежинки не выходили за пределы окна */
+    overflow: hidden; 
    
 }
 
@@ -112,33 +112,17 @@ body
     height: 180px;
     z-index: 8;
 }
-.circle::before
-{
+.circle::before {
     content: '';
     position: absolute;
     top: -8.5px;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: var(--clr);
-    box-shadow: 0 0 20px var(--clr),
-    0 0 60px var(--clr);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 17px 10px; /* Изменяем размеры для создания треугольника */
+    border-color: transparent transparent var(--clr) transparent;
+    filter: drop-shadow(0 0 5px var(--clr)); /* Создаем свечение */
 }
-
-
-
-
-body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    height: 100vh;
-    background-color: #2f363e;
-  }
-  
-
-  
-
 
 
   .snow-container {
@@ -154,7 +138,7 @@ body {
     pointer-events: none;
     background-color: #fff;
     border-radius: 50%;
-    max-height: none; /* Убираем ограничение высоты */
-    overflow: visible; /* Позволяет элементу быть видимым за пределами своего контейнера */
+    max-height: none; 
+    overflow: visible; 
   }
   
