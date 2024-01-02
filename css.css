@@ -145,3 +145,34 @@ body
 
     font-size: 5em; 
   }
+  html{
+
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+  body
+  {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+
+@media screen and (max-width: 500px) {
+  .clock,
+  .circle,
+  .big-text,
+  .clock span b {
+    transform: scale(0.7); 
+  }
+}
+@media screen and (max-width: 320px) {
+  .clock,
+  .circle,
+  .big-text,
+  .clock span b {
+    transform: scale(0.5) ; 
+  }
+}
